@@ -43,10 +43,26 @@
             font-size: 2.2em;
             margin-bottom: 1em;
             animation: float 2.5s ease-in-out infinite alternate;
+            display: flex;
+            justify-content: center;
+            gap: 0.2em;
+            flex-wrap: wrap;
+        }
+        .balloon-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.15em;
+            margin-bottom: 0.5em;
+            font-size: 2.1em;
+            animation: floatRow 3s ease-in-out infinite alternate;
         }
         @keyframes float {
             0% { transform: translateY(0); }
             100% { transform: translateY(-16px); }
+        }
+        @keyframes floatRow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
         }
         .details {
             font-size: 1.13em;
@@ -100,7 +116,9 @@
         <div class="photo-frame">
             <img src="https://github.com/thejaswinihs/Birthday-invite/raw/main/Ayush.jpeg" alt="Ayush" class="ayush-photo">
         </div>
-        <div class="balloons">🎈🎉🥳</div>
+        <div class="balloon-row">🎈🎈🎉🎊🎈🎈🎉🎊🎈🎈</div>
+        <div class="balloons">🎈🎉🥳🎊🎈🎈🎉🎊🥳🎈</div>
+        <div class="balloon-row">🎈🎊🎉🎈🎈🎉🎊🎈🎈🎉</div>
         <h1>You're Invited!</h1>
         <div class="details">
             <p>Join us to celebrate <strong>Ayush Iyer</strong> turning <strong>6 years old</strong>!</p>
