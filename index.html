@@ -102,17 +102,63 @@ iframe {
 			👉 Open in Google Maps
 		</a>
 	</p>
-	<div style="margin: 1.5em 0 1em 0;">
-		<p>Or scan for the venue location:</p>
-		<img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://maps.google.com/?q=Attide+Biz,+31,+32,+33,+E+Block+Extension,+14th+Main+Rd,+Sahakar+Nagar,+Byatarayanapura" alt="Venue Location QR Code" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-	</div>
 	</p>
 
 	<h3>✅ RSVP</h3>
-	<form action="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank">
-		<input type="text" placeholder="Your Name" required>
+	<form onsubmit="event.preventDefault(); alert('Thank you for confirming!'); this.reset();" style="margin-top: 1em;">
+		<input type="text" name="name" placeholder="Your Name" required>
+		<input type="number" name="members" min="1" max="10" placeholder="No. of Members" required style="margin-top:8px;">
 		<button type="submit">Confirm Attendance</button>
 	</form>
+	<div id="rsvp-thankyou" style="display:none; margin-top:1em; color:#27ae60; font-weight:bold;"></div>
+		<button type="button" onclick="showResponses()" style="margin-top:1.5em;background:#43cea2;color:#fff;font-weight:bold;">View All RSVPs</button>
+		<div id="rsvp-list" style="display:none;margin-top:1em;text-align:left;background:#fffbe7;border-radius:10px;padding:16px 12px;box-shadow:0 2px 8px #43cea220;"></div>
+		<script>
+			function showResponses() {
+				let rsvps = [];
+				try {
+					rsvps = JSON.parse(localStorage.getItem('ayush_rsvps') || '[]');
+				} catch {}
+				const listDiv = document.getElementById('rsvp-list');
+				if (!rsvps.length) {
+					listDiv.innerHTML = '<b>No RSVPs yet.</b>';
+					listDiv.style.display = 'block';
+					return;
+				}
+				let totalMembers = 0;
+				let html = `<b>Total RSVPs:</b> ${rsvps.length}<br>`;
+				html += '<ul style="padding-left:18px;">';
+				rsvps.forEach(r => {
+					totalMembers += parseInt(r.members, 10) || 0;
+					html += `<li><b>${r.name}</b> - ${r.members} member(s)</li>`;
+				});
+				html += '</ul>';
+				html += `<b>Total Members:</b> ${totalMembers}`;
+				listDiv.innerHTML = html;
+				listDiv.style.display = 'block';
+			}
+		</script>
+	<script>
+		const form = document.querySelector('form');
+		const thankyou = document.getElementById('rsvp-thankyou');
+		form.onsubmit = function(event) {
+			event.preventDefault();
+			const name = form.elements['name'].value.trim();
+			const members = form.elements['members'].value.trim();
+			if (!name || !members) return;
+			// Store in localStorage
+			let rsvps = [];
+			try {
+				rsvps = JSON.parse(localStorage.getItem('ayush_rsvps') || '[]');
+			} catch {}
+			rsvps.push({ name, members, time: new Date().toISOString() });
+			localStorage.setItem('ayush_rsvps', JSON.stringify(rsvps));
+			thankyou.style.display = 'block';
+			thankyou.textContent = `Thank you, ${name}! Your RSVP for ${members} member(s) is received.`;
+			form.reset();
+			setTimeout(() => { thankyou.style.display = 'none'; }, 6000);
+		};
+	</script>
 	<div style="margin: 2em 0 1em 0;">
 		<p>Or scan to RSVP:</p>
 		<img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://forms.gle/YOUR_GOOGLE_FORM_LINK" alt="Google Form QR Code" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
