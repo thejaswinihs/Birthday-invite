@@ -7,11 +7,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {
-font-family: Arial, sans-serif;
-background: #fdf2f8;
-margin: 0;
-padding: 20px;
-text-align: center;
+	font-family: Arial, sans-serif;
+	background: url('https://github.com/thejaswinihs/Birthday-invite/raw/main/mcqueen.jpg') no-repeat center center fixed;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	min-height: 100vh;
+	position: relative;
+}
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(255,255,255,0.85);
+	z-index: 0;
 }
 .card {
 background: #fff;
@@ -46,8 +58,8 @@ border: 0;
 </style>
 </head>
 <body>
-
-<div class="card">
+<div class="overlay"></div>
+<div class="card" style="position: relative; z-index: 1;">
 	<div style="margin-bottom: 12px;">
 		<img src="https://github.com/thejaswinihs/Birthday-invite/raw/main/mcqueen.jpg" alt="Lightning McQueen" style="width:120px;max-width:90vw;">
 	</div>
@@ -55,9 +67,11 @@ border: 0;
 	<h1>🎂 Ayush Birthday Invitation 🎉</h1>
 	<p>
 		You are warmly invited to celebrate our child’s <b>6th Birthday</b> 🎈<br><br>
-		📅 <b>7th February 2026 (Saturday)</b><br>
-		⏰ <b>Evening</b><br>
-		📍 <b>Venue: Attide Biz, 31, 32, 33, E Block Extension, 14th Main Rd, Sahakar Nagar, Byatarayanapura</b>
+		<span style="display:inline-block;text-align:left;line-height:1.7em;">
+			📅 <b>7th February 2026 (Saturday)</b><br>
+			⏰ <b>7:00 PM onwards</b><br>
+			📍 <b>Venue: Attide Biz, 31, 32, 33, E Block Extension,<br>14th Main Rd, Sahakar Nagar, Byatarayanapura</b>
+		</span>
 	</p>
 
 	<h3>📍 Location</h3>
@@ -69,6 +83,11 @@ border: 0;
 		<a href="https://maps.google.com/?q=Attide+Biz,+31,+32,+33,+E+Block+Extension,+14th+Main+Rd,+Sahakar+Nagar,+Byatarayanapura" target="_blank">
 			👉 Open in Google Maps
 		</a>
+	</p>
+	<div style="margin: 1.5em 0 1em 0;">
+		<p>Or scan for the venue location:</p>
+		<img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://maps.google.com/?q=Attide+Biz,+31,+32,+33,+E+Block+Extension,+14th+Main+Rd,+Sahakar+Nagar,+Byatarayanapura" alt="Venue Location QR Code" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+	</div>
 	</p>
 
 	<h3>✅ RSVP</h3>
