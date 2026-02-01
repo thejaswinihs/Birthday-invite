@@ -126,8 +126,11 @@ iframe {
 	<h3>✅ RSVP</h3>
 	<form onsubmit="event.preventDefault(); alert('Thank you for confirming!'); this.reset();" style="margin-top: 1em;">
 		<input type="text" name="name" placeholder="Your Name" required>
-		<input type="number" name="members" min="1" max="10" placeholder="No. of Members" required style="margin-top:8px;">
-		<button type="submit">Confirm Attendance</button>
+		<input type="number" name="members" min="1" max="10" placeholder="No. of Members" style="margin-top:8px;">
+		<div style="margin:10px 0 8px 0;text-align:left;">
+			<label><input type="checkbox" name="notComing" style="margin-right:6px;">I will not be able to attend</label>
+		</div>
+		<button type="submit">Submit RSVP</button>
 	</form>
 	<div id="rsvp-thankyou" style="display:none; margin-top:1em; color:#27ae60; font-weight:bold;"></div>
 		<button type="button" onclick="showResponses()" style="margin-top:1.5em;background:#43cea2;color:#fff;font-weight:bold;">View All RSVPs</button>
