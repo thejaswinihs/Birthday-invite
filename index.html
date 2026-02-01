@@ -1,144 +1,82 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayush Iyer's 6th Birthday Invitation</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(120deg, #f9d423 0%, #ff4e50 50%, #43cea2 100%);
-            color: #333;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-        .confetti {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .container {
-            max-width: 520px;
-            margin: 48px auto 32px auto;
-            background: rgba(255,255,255,0.95);
-            border-radius: 24px;
-            box-shadow: 0 6px 32px rgba(0,0,0,0.15);
-            padding: 36px 28px 32px 28px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        h1 {
-            color: #ff4e50;
-            font-size: 2.4em;
-            margin-bottom: 0.5em;
-            letter-spacing: 1px;
-            text-shadow: 1px 2px 8px #f9d42344;
-        }
-        .balloons {
-            font-size: 2.2em;
-            margin-bottom: 1em;
-            animation: float 2.5s ease-in-out infinite alternate;
-            display: flex;
-            justify-content: center;
-            gap: 0.2em;
-            flex-wrap: wrap;
-        }
-        .balloon-row {
-            display: flex;
-            justify-content: center;
-            gap: 0.15em;
-            margin-bottom: 0.5em;
-            font-size: 2.1em;
-            animation: floatRow 3s ease-in-out infinite alternate;
-        }
-        @keyframes float {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-16px); }
-        }
-        @keyframes floatRow {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
-        }
-        .details {
-            font-size: 1.13em;
-            margin-bottom: 1.5em;
-        }
-        .rsvp {
-            background: linear-gradient(90deg, #f9d423 0%, #ff4e50 100%);
-            color: #fff;
-            padding: 13px 28px;
-            border-radius: 10px;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1em;
-            font-size: 1.1em;
-            box-shadow: 0 2px 8px #ff4e5040;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .rsvp:hover {
-            background: linear-gradient(90deg, #43cea2 0%, #ff4e50 100%);
-            transform: scale(1.05);
-        }
-        .footer {
-            margin-top: 2em;
-            font-size: 0.97em;
-            color: #888;
-        }
-        .ayush-photo {
-            width: 140px;
-            height: 140px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid #f9d423;
-            box-shadow: 0 4px 16px #ff4e5040;
-            margin: 0 auto 18px auto;
-            display: block;
-            background: #fff;
-        }
-        .photo-frame {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            border-radius: 50%;
-            padding: 8px;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Birthday Invitation 🎉</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+font-family: Arial, sans-serif;
+background: #fdf2f8;
+margin: 0;
+padding: 20px;
+text-align: center;
+}
+.card {
+background: #fff;
+max-width: 500px;
+margin: auto;
+padding: 25px;
+border-radius: 12px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+h1 { color: #e11d48; }
+p { font-size: 16px; }
+input, button {
+width: 100%;
+padding: 10px;
+margin-top: 10px;
+font-size: 16px;
+}
+button {
+background: #e11d48;
+color: white;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+}
+iframe {
+width: 100%;
+height: 250px;
+margin-top: 15px;
+border-radius: 10px;
+border: 0;
+}
+</style>
 </head>
 <body>
-    <canvas class="confetti"></canvas>
-    <div class="container">
-        <div class="photo-frame">
-            <img src="https://github.com/thejaswinihs/Birthday-invite/raw/main/Ayush.jpeg" alt="Ayush" class="ayush-photo">
-        </div>
-        <div class="balloon-row">🎈🎈🎉🎊🎈🎈🎉🎊🎈🎈</div>
-        <div class="balloons">🎈🎉🥳🎊🎈🎈🎉🎊🥳🎈</div>
-        <div class="balloon-row">🎈🎊🎉🎈🎈🎉🎊🎈🎈🎉</div>
-        <h1>You're Invited!</h1>
-        <div class="details">
-            <p>Join us to celebrate <strong>Ayush Iyer</strong> turning <strong>6 years old</strong>!</p>
-            <p><strong>Date:</strong> 7th February 2026</p>
-            <p><strong>Time:</strong> 7:00 PM onwards</p>
-            <p><strong>Venue:</strong> Attide Biz, 31, 32, 33, E Block Extension, 14th Main Rd, Sahakar Nagar, Byatarayanapura</p>
-            <p>
-                <strong>RSVP:</strong> <a href="https://forms.gle/your-google-form-link" target="_blank">Fill out the Google Form</a>
-            </p>
-        </div>
-        <p>We'd love to see you there for fun, games, and cake!</p>
-        <a class="rsvp" href="https://wa.me/?text=I%20will%20join%20Ayush%20Iyer's%206th%20Birthday%20Party!" target="_blank">RSVP on WhatsApp</a>
-                <div style="margin: 2em 0 1em 0;">
-                    <p>Scan the QR code for the venue location:</p>
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.google.com/maps/search/?api=1&query=Attide+Biz%2C+31%2C+32%2C+33%2C+E+Block+Extension%2C+14th+Main+Rd%2C+Sahakar+Nagar%2C+Byatarayanapura" alt="Venue Location QR Code" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
-                </div>
-        <div class="footer">
-            Hosted with ❤️ for Ayush<br>
-            Share this link with friends and family!
-        </div>
-    </div>
+
+<div class="card">
+	<img src="https://github.com/thejaswinihs/Birthday-invite/raw/main/Ayush.jpeg" alt="Ayush" style="width:140px;height:140px;object-fit:cover;border-radius:50%;border:4px solid #e11d48;box-shadow:0 2px 8px #e11d4840;margin-bottom:18px;">
+	<h1>🎂 Birthday Invitation 🎉</h1>
+	<p>
+		You are warmly invited to celebrate our child’s <b>6th Birthday</b> 🎈<br><br>
+		📅 <b>7th February 2026 (Saturday)</b><br>
+		⏰ <b>Evening</b>
+	</p>
+
+	<h3>📍 Location</h3>
+	<iframe
+		src="https://www.google.com/maps?q=YOUR_LOCATION_HERE&output=embed">
+	</iframe>
+
+	<p>
+		<a href="https://maps.google.com/?q=YOUR_LOCATION_HERE" target="_blank">
+			👉 Open in Google Maps
+		</a>
+	</p>
+
+	<h3>✅ RSVP</h3>
+	<form action="https://forms.gle/YOUR_GOOGLE_FORM_LINK" target="_blank">
+		<input type="text" placeholder="Your Name" required>
+		<button type="submit">Confirm Attendance</button>
+	</form>
+	<div style="margin: 2em 0 1em 0;">
+		<p>Or scan to RSVP:</p>
+		<img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://forms.gle/YOUR_GOOGLE_FORM_LINK" alt="Google Form QR Code" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+	</div>
+</div>
+
 </body>
 </html>
