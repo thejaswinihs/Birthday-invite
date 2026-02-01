@@ -126,9 +126,9 @@ iframe {
 	<h3>✅ RSVP</h3>
 	<form onsubmit="event.preventDefault(); alert('Thank you for confirming!'); this.reset();" style="margin-top: 1em;">
 		<input type="text" name="name" placeholder="Your Name" required>
-		<input type="number" name="members" min="1" max="10" placeholder="No. of Members" style="margin-top:8px;">
+		<input type="number" id="membersField" name="members" min="1" max="10" placeholder="No. of Members (if attending)" style="margin-top:8px;">
 		<div style="margin:10px 0 8px 0;text-align:left;">
-			<label><input type="checkbox" name="notComing" style="margin-right:6px;">I will not be able to attend</label>
+			<label><input type="checkbox" id="notComingCheckbox" name="notComing" style="margin-right:6px;">I will not be able to attend</label>
 		</div>
 		<button type="submit">Submit RSVP</button>
 	</form>
@@ -136,6 +136,17 @@ iframe {
 		<button type="button" onclick="showResponses()" style="margin-top:1.5em;background:#43cea2;color:#fff;font-weight:bold;">View All RSVPs</button>
 		<div id="rsvp-list" style="display:none;margin-top:1em;text-align:left;background:#fffbe7;border-radius:10px;padding:16px 12px;box-shadow:0 2px 8px #43cea220;"></div>
 		<script>
+				// Hide/show members field based on notComing checkbox
+				const notComingCheckbox = document.getElementById('notComingCheckbox');
+				const membersField = document.getElementById('membersField');
+				notComingCheckbox.addEventListener('change', function() {
+					if (this.checked) {
+						membersField.style.display = 'none';
+						membersField.value = '';
+					} else {
+						membersField.style.display = '';
+					}
+				});
 			function showResponses() {
 				let rsvps = [];
 				try {
