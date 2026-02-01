@@ -7,63 +7,106 @@
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #f9d423 0%, #ff4e50 100%);
+            background: linear-gradient(120deg, #f9d423 0%, #ff4e50 50%, #43cea2 100%);
             color: #333;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .confetti {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 1;
         }
         .container {
-            max-width: 500px;
-            margin: 40px auto;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-            padding: 32px 24px;
+            max-width: 520px;
+            margin: 48px auto 32px auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 24px;
+            box-shadow: 0 6px 32px rgba(0,0,0,0.15);
+            padding: 36px 28px 32px 28px;
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
         h1 {
             color: #ff4e50;
-            font-size: 2.2em;
+            font-size: 2.4em;
             margin-bottom: 0.5em;
+            letter-spacing: 1px;
+            text-shadow: 1px 2px 8px #f9d42344;
         }
         .balloons {
-            font-size: 2em;
+            font-size: 2.2em;
             margin-bottom: 1em;
+            animation: float 2.5s ease-in-out infinite alternate;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-16px); }
         }
         .details {
-            font-size: 1.1em;
+            font-size: 1.13em;
             margin-bottom: 1.5em;
         }
         .rsvp {
-            background: #f9d423;
+            background: linear-gradient(90deg, #f9d423 0%, #ff4e50 100%);
             color: #fff;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 13px 28px;
+            border-radius: 10px;
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
             margin-top: 1em;
-            transition: background 0.2s;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px #ff4e5040;
+            transition: background 0.2s, transform 0.2s;
         }
         .rsvp:hover {
-            background: #ff4e50;
+            background: linear-gradient(90deg, #43cea2 0%, #ff4e50 100%);
+            transform: scale(1.05);
         }
         .footer {
             margin-top: 2em;
-            font-size: 0.9em;
+            font-size: 0.97em;
             color: #888;
+        }
+        .ayush-photo {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #f9d423;
+            box-shadow: 0 4px 16px #ff4e5040;
+            margin: 0 auto 18px auto;
+            display: block;
+            background: #fff;
+        }
+        .photo-frame {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 50%;
+            padding: 8px;
+            display: inline-block;
+            margin-bottom: 12px;
         }
     </style>
 </head>
 <body>
+    <canvas class="confetti"></canvas>
     <div class="container">
+        <div class="photo-frame">
+            <img src="https://github.com/thejaswinihs/Birthday-invite/raw/main/Ayush.jpeg" alt="Ayush" class="ayush-photo">
+        </div>
         <div class="balloons">🎈🎉🥳</div>
         <h1>You're Invited!</h1>
         <div class="details">
             <p>Join us to celebrate <strong>Ayush Iyer</strong> turning <strong>6 years old</strong>!</p>
-            <p><strong>Date:</strong> 10th February 2026</p>
-            <p><strong>Time:</strong> 4:00 PM onwards</p>
-            <p><strong>Venue:</strong> Ayush's Home, Bangalore</p>
+            <p><strong>Date:</strong> 7th February 2026</p>
+            <p><strong>Time:</strong> 7:00 PM onwards</p>
+            <p><strong>Venue:</strong> Attide Biz, 31, 32, 33, E Block Extension, 14th Main Rd, Sahakar Nagar, Byatarayanapura</p>
             <p>
                 <strong>RSVP:</strong> <a href="https://forms.gle/your-google-form-link" target="_blank">Fill out the Google Form</a>
             </p>
@@ -71,8 +114,8 @@
         <p>We'd love to see you there for fun, games, and cake!</p>
         <a class="rsvp" href="https://wa.me/?text=I%20will%20join%20Ayush%20Iyer's%206th%20Birthday%20Party!" target="_blank">RSVP on WhatsApp</a>
                 <div style="margin: 2em 0 1em 0;">
-                    <p>Scan the QR code to RSVP:</p>
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://forms.gle/your-google-form-link" alt="Google Form QR Code" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                    <p>Scan the QR code for the venue location:</p>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://www.google.com/maps/search/?api=1&query=Attide+Biz%2C+31%2C+32%2C+33%2C+E+Block+Extension%2C+14th+Main+Rd%2C+Sahakar+Nagar%2C+Byatarayanapura" alt="Venue Location QR Code" style="border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
                 </div>
         <div class="footer">
             Hosted with ❤️ for Ayush<br>
