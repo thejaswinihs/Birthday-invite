@@ -124,83 +124,8 @@ iframe {
 	</p>
 
 	<h3>✅ RSVP</h3>
-	<form onsubmit="event.preventDefault(); alert('Thank you for confirming!'); this.reset();" style="margin-top: 1em;">
-		<input type="text" name="name" placeholder="Your Name" required>
-		<input type="number" id="membersField" name="members" min="1" max="10" placeholder="No. of Members (if attending)" style="margin-top:8px;">
-		<div style="margin:10px 0 8px 0;text-align:left;">
-			<label><input type="checkbox" id="notComingCheckbox" name="notComing" style="margin-right:6px;">I will not be able to attend</label>
-		</div>
-		<button type="submit">Submit RSVP</button>
-	</form>
-	<div id="rsvp-thankyou" style="display:none; margin-top:1em; color:#27ae60; font-weight:bold;"></div>
-		<button type="button" onclick="showResponses()" style="margin-top:1.5em;background:#43cea2;color:#fff;font-weight:bold;">View All RSVPs</button>
-		<div id="rsvp-list" style="display:none;margin-top:1em;text-align:left;background:#fffbe7;border-radius:10px;padding:16px 12px;box-shadow:0 2px 8px #43cea220;"></div>
-		<script>
-				// Hide/show members field based on notComing checkbox
-				const notComingCheckbox = document.getElementById('notComingCheckbox');
-				const membersField = document.getElementById('membersField');
-				notComingCheckbox.addEventListener('change', function() {
-					if (this.checked) {
-						membersField.style.display = 'none';
-						membersField.value = '';
-					} else {
-						membersField.style.display = '';
-					}
-				});
-			function showResponses() {
-				let rsvps = [];
-				try {
-					rsvps = JSON.parse(localStorage.getItem('ayush_rsvps') || '[]');
-				} catch {}
-				const listDiv = document.getElementById('rsvp-list');
-				if (!rsvps.length) {
-					listDiv.innerHTML = '<b>No RSVPs yet.</b>';
-					listDiv.style.display = 'block';
-					return;
-				}
-				let totalMembers = 0;
-				let html = `<b>Total RSVPs:</b> ${rsvps.length}<br>`;
-				html += '<ul style="padding-left:18px;">';
-				rsvps.forEach(r => {
-					totalMembers += parseInt(r.members, 10) || 0;
-					html += `<li><b>${r.name}</b> - ${r.members} member(s)</li>`;
-				});
-				html += '</ul>';
-				html += `<b>Total Members:</b> ${totalMembers}`;
-				listDiv.innerHTML = html;
-				listDiv.style.display = 'block';
-			}
-		</script>
-	<script>
-		const form = document.querySelector('form');
-		const thankyou = document.getElementById('rsvp-thankyou');
-		form.onsubmit = function(event) {
-			event.preventDefault();
-			const name = form.elements['name'].value.trim();
-			const members = form.elements['members'].value.trim();
-			if (!name || !members) return;
-			// Store in localStorage, prevent duplicate by name (case-insensitive)
-			let rsvps = [];
-			try {
-				rsvps = JSON.parse(localStorage.getItem('ayush_rsvps') || '[]');
-			} catch {}
-			const exists = rsvps.some(r => r.name.toLowerCase() === name.toLowerCase());
-			if (exists) {
-				thankyou.style.display = 'block';
-				thankyou.style.color = '#e11d48';
-				thankyou.textContent = `You have already RSVP'd, ${name}!`;
-				setTimeout(() => { thankyou.style.display = 'none'; thankyou.style.color = '#27ae60'; }, 6000);
-				return;
-			}
-			rsvps.push({ name, members, time: new Date().toISOString() });
-			localStorage.setItem('ayush_rsvps', JSON.stringify(rsvps));
-			thankyou.style.display = 'block';
-			thankyou.style.color = '#27ae60';
-			thankyou.textContent = `Thank you, ${name}! Your RSVP for ${members} member(s) is received.`;
-			form.reset();
-			setTimeout(() => { thankyou.style.display = 'none'; }, 6000);
-		};
-	</script>
+	<!-- Embedded Google Form for RSVP -->
+	<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfJtXDhf6vg9JIEsUULCoUjWSp1TBfvl56MJr0UVUcMJ5JaRQ/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 </div>
 
 </body>
