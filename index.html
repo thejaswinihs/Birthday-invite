@@ -96,9 +96,110 @@ iframe {
 	border: 0;
 	box-shadow: 0 2px 8px #43cea240;
 }
+.balloon {
+	position: fixed;
+	bottom: -150px;
+	width: 50px;
+	height: 70px;
+	border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+	animation: float-up 15s ease-in infinite;
+	z-index: 999;
+	pointer-events: none;
+}
+.balloon::before {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 2px;
+	height: 60px;
+	background: rgba(0,0,0,0.2);
+}
+.balloon::after {
+	content: '▼';
+	position: absolute;
+	bottom: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 10px;
+	color: rgba(0,0,0,0.3);
+}
+@keyframes float-up {
+	0% {
+		bottom: -150px;
+		opacity: 1;
+		transform: translateX(0) rotate(0deg);
+	}
+	50% {
+		transform: translateX(20px) rotate(5deg);
+	}
+	100% {
+		bottom: 110vh;
+		opacity: 0;
+		transform: translateX(-20px) rotate(-5deg);
+	}
+}
+.balloon:nth-child(1) { left: 5%; background: #ff4e50; animation-delay: 0s; animation-duration: 7s; }
+.balloon:nth-child(2) { left: 12%; background: #f9d423; animation-delay: 1s; animation-duration: 8s; }
+.balloon:nth-child(3) { left: 20%; background: #43cea2; animation-delay: 2s; animation-duration: 6s; }
+.balloon:nth-child(4) { left: 28%; background: #667eea; animation-delay: 0.5s; animation-duration: 7.5s; }
+.balloon:nth-child(5) { left: 36%; background: #f093fb; animation-delay: 1.5s; animation-duration: 6.5s; }
+.balloon:nth-child(6) { left: 44%; background: #ff6b6b; animation-delay: 2.5s; animation-duration: 8s; }
+.balloon:nth-child(7) { left: 52%; background: #4ecdc4; animation-delay: 3s; animation-duration: 7s; }
+.balloon:nth-child(8) { left: 60%; background: #feca57; animation-delay: 1.2s; animation-duration: 6.8s; }
+.balloon:nth-child(9) { left: 68%; background: #a29bfe; animation-delay: 0.8s; animation-duration: 7.2s; }
+.balloon:nth-child(10) { left: 76%; background: #fd79a8; animation-delay: 2.2s; animation-duration: 6.3s; }
+.balloon:nth-child(11) { left: 84%; background: #00b894; animation-delay: 1.8s; animation-duration: 7.8s; }
+.balloon:nth-child(12) { left: 92%; background: #fdcb6e; animation-delay: 0.3s; animation-duration: 6.6s; }
+.balloon:nth-child(13) { left: 8%; background: #e17055; animation-delay: 3.5s; animation-duration: 7.3s; }
+.balloon:nth-child(14) { left: 16%; background: #74b9ff; animation-delay: 2.8s; animation-duration: 6.9s; }
+.balloon:nth-child(15) { left: 48%; background: #55efc4; animation-delay: 1.3s; animation-duration: 7.6s; }
+.directions-btn {
+	display: inline-block;
+	padding: 12px 24px;
+	margin: 15px 0;
+	background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+	color: white;
+	text-decoration: none;
+	border-radius: 8px;
+	font-weight: bold;
+	font-size: 1.1em;
+	box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.directions-btn:hover {
+	transform: scale(1.05);
+	box-shadow: 0 6px 16px rgba(102, 126, 234, 0.6);
+}
+.street-view {
+	width: 100%;
+	height: 300px;
+	margin-top: 15px;
+	border-radius: 14px;
+	border: 0;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 </style>
 </head>
 <body>
+<!-- Flying Balloons Overlay -->
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+<div class="balloon"></div>
+
 <div class="card" style="position: relative; z-index: 1;">
 	<img src="https://github.com/thejaswinihs/Birthday-invite/raw/main/Ayush.jpeg" alt="Ayush" style="width:180px;height:180px;object-fit:cover;border-radius:50%;border:5px solid #e11d48;box-shadow:0 4px 16px #e11d4840;margin-bottom:22px;">
 	<h2>🎂 Ayush Birthday Invitation 🎉</h12>
@@ -117,6 +218,14 @@ iframe {
 		<img src="https://api.qrserver.com/v1/create-qr-code/?data=Attide%20Biz%2C%2031%2C%2032%2C%2033%2C%20E%20Block%20Extension%2C%2014th%20Main%20Rd%2C%20Sahakar%20Nagar%2C%20Byatarayanapura%2C%20Bangalore&size=200x200" alt="Venue QR Code" style="margin:12px 0; border-radius:12px; box-shadow:0 2px 8px #43cea240;" />
 	</p>
 	<p style="font-size:1em;color:#333;">Scan this barcode to get the venue location on your phone.</p>
+	
+	<!-- Get Directions Button -->
+	<a href="https://www.google.com/maps/dir/?api=1&destination=13.058648414621675,77.59278592037718" target="_blank" class="directions-btn">
+		🗺️ Get Directions
+	</a>
+	
+	<!-- Google Street View from Outside -->
+	<iframe class="street-view" src="https://www.google.com/maps/embed?pb=!4v1706889234567!6m8!1m7!1sCAoSLEFGMVFpcE5CdXBGdGRfRGxfNGRfMjBfMjBfMjBfMjBfMjBfMjBfMjBfMjA!2m2!1d13.058731!2d77.592811!3f220.47!4f0!5f0.7820865974627469" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 	</p>
 
 	<h3>✅ RSVP</h3>
